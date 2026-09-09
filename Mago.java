@@ -1,23 +1,26 @@
-public class Mago implements Atacante { 
+public class Mago extends Personagem implements Atacante {
 
     private int inteligencia;
-    
- 
-    public void setInteligencia(int inteligencia){
-       if(inteligencia >= 0){
-           this.inteligencia = inteligencia;
-       } else{
-          System.out.println("O valor da inteligencia é inválido")
-       }
+
+    public Mago(String nome, int nivel, int vida, int inteligencia) {
+        super(nome, nivel, vida);
+        setInteligencia(inteligencia);
     }
- 
-    public int getInteligencia(){
+
+    public int getInteligencia() {
         return inteligencia;
     }
- 
- 
-    public String Atacar(){
-       
+
+    public void setInteligencia(int inteligencia) {
+        if (inteligencia >= 0) {
+            this.inteligencia = inteligencia;
+        } else {
+            System.out.println("O valor da inteligência é inválido.");
+        }
     }
- 
- }
+
+    @Override
+    public String atacar() {
+        return "O mago " + getNome() + " atacou com inteligência " + inteligencia + ".";
+    }
+}
