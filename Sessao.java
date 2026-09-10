@@ -25,9 +25,9 @@ public class Sessao {
     public void setData(LocalDate data) {
         if (data == null) {
             System.out.println("Data não pode ser nula.");
-            return;
+        } else {
+            this.data = data;
         }
-        this.data = data;
     }
 
     public String getDescricao() {
@@ -37,8 +37,8 @@ public class Sessao {
     public void setDescricao(String descricao) {
         if (descricao == null || descricao.trim().isEmpty()) {
             System.out.println("Descrição não pode ser nula ou vazia.");
-            return;
+        } else {
+            this.descricao = descricao;
         }
-        this.descricao = descricao;
     }
 }
