@@ -17,9 +17,9 @@ public class Participacao {
     public void setPapel(String papel) {
         if (papel == null || papel.trim().isEmpty()) {
             System.out.println("Papel não pode ser nulo ou vazio.");
-            return;
+        } else {
+            this.papel = papel;
         }
-        this.papel = papel;
     }
 
     public LocalDate getDataEntrada() {
@@ -29,9 +29,9 @@ public class Participacao {
     public void setDataEntrada(LocalDate dataEntrada) {
         if (dataEntrada == null) {
             System.out.println("Data de entrada não pode ser nula.");
-            return;
+        } else {
+            this.dataEntrada = dataEntrada;
         }
-        this.dataEntrada = dataEntrada;
     }
     
 }
