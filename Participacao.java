@@ -1,13 +1,26 @@
-import java.time.LocalDate; 
+import java.time.LocalDate;
 
 public class Participacao {
-    
+    private Jogador jogador;
     private String papel;
     private LocalDate dataEntrada;
 
-    public Participacao(String papel, LocalDate dataEntrada) {
+    public Participacao(Jogador jogador, String papel, LocalDate dataEntrada) {
+        setJogador(jogador);
         setPapel(papel);
         setDataEntrada(dataEntrada);
+    }
+
+    public Jogador getJogador() {
+        return jogador;
+    }
+
+    public void setJogador(Jogador jogador) {
+        if (jogador == null) {
+            System.out.println("Jogador não pode ser nulo.");
+        } else {
+            this.jogador = jogador;
+        }
     }
 
     public String getPapel() {
@@ -33,5 +46,4 @@ public class Participacao {
             this.dataEntrada = dataEntrada;
         }
     }
-    
 }
