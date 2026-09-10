@@ -2,26 +2,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Jogador {
-
     private static int contadorId = 0;
 
     private int id;
     private String nome;
     private List<Personagem> personagens;
+    private List<Participacao> participacoes;
 
     public Jogador(String nome) {
         this.id = ++contadorId;
         setNome(nome);
         this.personagens = new ArrayList<>();
+        this.participacoes = new ArrayList<>();
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public String getNome() {
-        return nome;
-    }
+    public String getNome() { return nome; }
 
     public void setNome(String nome) {
         if (nome == null || nome.trim().isEmpty()) {
@@ -38,12 +35,10 @@ public class Jogador {
             this.personagens.add(personagem);
         }
     }
-    
+
     public Personagem buscarPersonagem(int id) {
         for (Personagem personagem : this.personagens) {
-            if (personagem.getId() == id) {
-                return personagem;
-            }
+            if (personagem.getId() == id) return personagem;
         }
         return null;
     }
@@ -54,5 +49,17 @@ public class Jogador {
 
     public boolean removerPersonagem(int id) {
         return this.personagens.removeIf(personagem -> personagem.getId() == id);
+    }
+
+    public void adicionarParticipacao(Participacao participacao) {
+        if (participacao == null) {
+            System.out.println("Participação não pode ser nula.");
+        } else {
+            this.participacoes.add(participacao);
+        }
+    }
+
+    public List<Participacao> listarParticipacoes() {
+        return participacoes;
     }
 }
