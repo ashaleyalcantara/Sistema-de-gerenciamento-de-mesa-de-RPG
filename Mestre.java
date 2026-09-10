@@ -21,15 +21,16 @@ public class Mestre {
     public void setNome(String nome) {
         if (nome == null || nome.trim().isEmpty()) {
             System.out.println("Nome do mestre não pode ser nulo ou vazio.");
-            return;
+        } else {
+            this.nome = nome;
         }
-        this.nome = nome;
     }
 
     public String narrar(String mensagem) {
         if (mensagem == null || mensagem.trim().isEmpty()) {
             return "Mestre " + this.nome + " não tem nada a narrar.";
+        } else {
+            return "Mestre " + this.nome + ": " + mensagem;
         }
-        return "Mestre " + this.nome + ": " + mensagem;
     }
 }
