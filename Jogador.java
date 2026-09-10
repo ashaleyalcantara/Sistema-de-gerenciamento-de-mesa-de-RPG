@@ -7,7 +7,8 @@ public class Jogador {
     private int id;
     private String nome;
     private List<Personagem> personagens;
-    private List<Participacao> participacoes;
+    private List<Participacao> participacoes; /*Adicionamos uma lista de participações para o jogador juntamente com seus métodos para representar a relação bilateral
+                                                existente no diagrama  */
 
     public Jogador(String nome) {
         this.id = ++contadorId;

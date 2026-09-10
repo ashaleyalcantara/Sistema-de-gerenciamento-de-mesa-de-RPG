@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 
 public class Participacao {
-    private Jogador jogador;
+    private Jogador jogador; //Adicionamos um atributo jogador para a participação juntamente com seus métodos para representar a relação bilateral existente no diagrama 
     private String papel;
     private LocalDate dataEntrada;
 

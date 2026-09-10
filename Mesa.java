@@ -8,7 +8,7 @@ public class Mesa {
 
     private int id;
     private String nome;
-    private Mestre mestre;
+    private Mestre mestre; //Adicionamos um atributo mestre para a mesa juntamente com seus métodos para representar a relação unilateral existente no diagrama 
     private List<Jogador> jogadores;
     private List<Participacao> participacoes;
     private List<Sessao> sessoes;
