@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Personagem {
+public abstract class Personagem {
 
     private static int contadorId = 0;
 
@@ -63,16 +63,14 @@ public class Personagem {
 
     public void adicionarItem(Item item) {
         if (item != null) {
-            itens.add(item);
+            this.itens.add(item);
+        } else {
+            System.out.println("Item não pode ser nulo.");
         }
     }
 
-    public boolean removerItem(Item item) {
-        if (item != null) {
-            return itens.remove(item);
-        }
-
-        return false;
+    public boolean removerItem(int id) {
+        return itens.removeIf(item -> item.getId() == id);
     }
 
     public List<Item> listarItens() {
@@ -80,7 +78,11 @@ public class Personagem {
     }
 
     public void definirMentor(Personagem mentor) {
-        if (mentor != null && mentor != this) {
+        if (mentor == null) {
+            System.out.println("Mentor não pode ser nulo.");
+        } else if (mentor == this) {
+            System.out.println("Um personagem não pode ser seu próprio mentor.");
+        } else {
             this.mentor = mentor;
         }
     }
@@ -105,7 +107,5 @@ public class Personagem {
         }
     }
 
-    public String atacar() {
-        return "O personagem " + nome + " realizou um ataque.";
-    }
+    public abstract String atacar();
 }
