@@ -13,26 +13,12 @@ public class Mesa {
     private List<Participacao> participacoes;
     private List<Sessao> sessoes;
 
-    public Mesa(String nome, Mestre mestre) {
+    public Mesa(String nome) {
         this.id = ++contadorId;
         setNome(nome);
-        setMestre(mestre);
         this.jogadores = new ArrayList<>();
         this.participacoes = new ArrayList<>();
         this.sessoes = new ArrayList<>();
-    }
-
-    public Mesa(String nome, Mestre mestre, List<Jogador> jogadores, List<Participacao> participacoes, List<Sessao> sessoes) {
-        this(nome, mestre);
-        if (jogadores != null) {
-            this.jogadores.addAll(jogadores);
-        }
-        if (participacoes != null) {
-            this.participacoes.addAll(participacoes);
-        }
-        if (sessoes != null) {
-            this.sessoes.addAll(sessoes);
-        }
     }
 
     public int getId() {
@@ -46,45 +32,45 @@ public class Mesa {
     public void setNome(String nome) {
         if (nome == null || nome.trim().isEmpty()) {
             System.out.println("Nome da mesa não pode ser nulo ou vazio.");
-            return;
+        } else {
+            this.nome = nome;
         }
-        this.nome = nome;
     }
 
     public Mestre getMestre() {
         return mestre;
     }
 
-    public void setMestre(Mestre mestre) {
+    public void adicionarMestre(Mestre mestre) {
         if (mestre == null) {
             System.out.println("Mestre não pode ser nulo.");
-            return;
+        } else {
+            this.mestre = mestre;
         }
-        this.mestre = mestre;
     }
-
+    
     public void adicionarJogador(Jogador jogador) {
         if (jogador == null) {
             System.out.println("Jogador não pode ser nulo.");
-            return;
+        } else {
+            this.jogadores.add(jogador);
         }
-        this.jogadores.add(jogador);
     }
 
-    public Jogador[] listarJogadores() {
-        return this.jogadores.toArray(new Jogador[0]);
+    public List<Jogador> listarJogadores() {
+        return jogadores;
     }
 
     public void adicionarParticipacao(Participacao participacao) {
         if (participacao == null) {
             System.out.println("Participação não pode ser nula.");
-            return;
+        } else {
+            this.participacoes.add(participacao);
         }
-        this.participacoes.add(participacao);
     }
 
-    public Participacao[] listarParticipacoes() {
-        return this.participacoes.toArray(new Participacao[0]);
+    public List<Participacao> listarParticipacoes() {
+        return participacoes;
     }
 
     public Sessao criarSessao(LocalDate data, String descricao) {
@@ -93,7 +79,7 @@ public class Mesa {
         return novaSessao;
     }
 
-    public Sessao[] listarSessoes() {
-        return this.sessoes.toArray(new Sessao[0]);
+    public List<Sessao> listarSessoes() {
+        return sessoes;
     }
 }
