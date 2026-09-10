@@ -45,9 +45,7 @@ public class Main {
         System.out.println(mago.atacar());
         System.out.println(arqueiro.atacar());
 
-        if (guerreiro.getMentor() != null) {
-            System.out.println("Mentor de " + guerreiro.getNome() + ": " + guerreiro.getMentor().getNome());
-        }
+        System.out.println("Mentor de " + guerreiro.getNome() + ": " + (guerreiro.getMentor() != null ? guerreiro.getMentor().getNome() : "Nenhum"));
 
         guerreiro.receberDano(30);
         System.out.println("Vida de " + guerreiro.getNome() + " após dano: " + guerreiro.getVida());
